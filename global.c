@@ -20,7 +20,7 @@ typedef double real;typedef unsigned int nat;
 union nat_real_string {int integer; real floating; char* str[10];};
 union nat_real_string setting_content[40];
 int data_mode = 1;
-int gray_intensity = 100,structure_L = 500, structure_D = 800;
+int gray_intensity = 100,structure_L = 500, structure_D = 800, threshold = 128;
 int s_height = 30,DOWN = 355,LEFT = 500,num_F_codes =100,F_code = 0;
 int pixel_width = 17, pixel_height = 17,plot_slow = 10;
 int offset = 80,current_setting = 0,structure_W = 600, structure_H = 500;
@@ -28,10 +28,10 @@ int menu_left = 1100, menu_down = 340, hide_menu = 0, thickness = 3;
 real W[M][M],dW[M][M],z[M],a[M],da[M],b[M],db[M],p[M][2],data[MAX_DATA][2];
 real delta[M],mean_error = 0.0, noise = .3;
 int d[200],C[M][M],L, N, batch_size, image_size=100, neurons_in_layer[10];
-int number_of_settings = 20, number_of_basic_settings = 20, number_of_extended_settings=34,batch_size_increment = 20;
+int number_of_settings = 20, number_of_basic_settings = 20, number_of_extended_settings=35,batch_size_increment = 20;
 real amplify_increment = 0.01, sample_lower_bound = -1.0,sample_upper_bound = 1.0,rate = 0.005,rate_increment = 0.01;
 real amplify;
-int stats_left = 0, stats_down = 340, struct_mode = 0; struct_modes = 3;
+int stats_left = 0, stats_down = 340, struct_mode = 0; struct_modes = 4;
 int layer_transfer[M],transfer_types = 5,keyboard_input, data_points = 100;
 real left = -PI,right = PI,domain_increment = 0.2, max_f = 2.0,max_weight = 20;
 int display_mode = 0, menu_items = 4, menu_flag = 0;
@@ -88,7 +88,8 @@ char* setting_desc[40] = {
 "struct mode      =",
 "pix height       =",
 "pix width        =",
-"thickness        ="
+"thickness        =",
+"threshold        =",
 };
 
 char* menu_choice[20] = {
@@ -105,7 +106,7 @@ ALLEGRO_FONT* big_font;
 ALLEGRO_DISPLAY *display;
 ALLEGRO_EVENT event;
 ALLEGRO_COLOR white, red, black, blue, green, yellow, gray,current_color, orange;
-ALLEGRO_COLOR transfer_color[10];
+ALLEGRO_COLOR transfer_color[10], random_color();
 
 
 void install_connections();

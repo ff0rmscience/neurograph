@@ -58,4 +58,9 @@ int getch()
 	return ev.keyboard.keycode;
 }
 
+ALLEGRO_COLOR random_color()
+{
+	return al_map_rgb(rand()%256, rand()%256, rand()%256);
+}
+
 

@@ -7,7 +7,7 @@ void plot_function_against_data(float x0, float x1, int ppu)
 	float Left = LEFT + ppu*(x1-x0) + 10;
 	
 	//current_color = al_map_rgb(rand()%256,rand()%256,rand()%256);     //(transfer_color[rand()%5];
-	al_draw_rectangle(LEFT-10, Down, Left, Down2,white,1);
+	if (hide_menu ==0) al_draw_rectangle(LEFT-10, Down, Left, Down2,white,1);
 	if (hide_menu == 0) for (int i = 0; i < data_points; i++)
 	{
 		//al_draw_filled_rectangle(LEFT + ppu*(data[i][0] - x0), DOWN + ppu * (1 - data[i][1]), LEFT + ppu*(data[i][0] - x0) + pixel_width,

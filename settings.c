@@ -34,6 +34,7 @@ void load_setting_content()
 	setting_content[31].integer = pixel_height;
 	setting_content[32].integer = pixel_width;
 	setting_content[33].integer = thickness;
+	setting_content[34].integer = threshold;
 
 
 
@@ -107,7 +108,8 @@ void increase_setting(int setting)
 		case 30: struct_mode++; if (struct_mode > struct_modes -1) struct_mode = 0; break;
 		case 31: pixel_height++;break;
 		case 32: pixel_width++;break;
-		case 33: thickness++;
+		case 33: thickness++;break;
+		case 34: threshold++; if (threshold > 255) threshold = 255;break;
 	
 	}
 		
@@ -152,6 +154,7 @@ void decrease_setting(int setting)
 		case 31: pixel_height--;if (pixel_height <1) pixel_height = 1;break; 
 		case 32: pixel_width--;if (pixel_width <1) pixel_width = 1;break; 
 		case 33: thickness--; if (thickness <1) thickness =1;break;
+		case 34: threshold--; if (threshold < 0) threshold = 0;break;
 		
 	}
 	

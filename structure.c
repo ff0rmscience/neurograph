@@ -36,7 +36,7 @@ void plot_structure(real left, real down, real r, real t)
 						brightness = (int) (( fabs(W[i][j]) / WEIGHT_LIMIT )*256);
 						if (W[i][j] < 0) current_color = blue; // al_map_rgb(0,0,brightness);
 						else current_color = red; //al_map_rgb(brightness, 0,0);
-						if (brightness > 128) al_draw_line(left+p[i][0],down+ p[i][1],left+p[j][0],down+ p[j][1], current_color,thickness);	
+						if (brightness > threshold) al_draw_line(left+p[i][0],down+ p[i][1],left+p[j][0],down+ p[j][1], current_color,thickness);	
 						break;
 					case 1:
 						brightness = (int) (( fabs(W[i][j]) / WEIGHT_LIMIT )*256);
@@ -46,8 +46,20 @@ void plot_structure(real left, real down, real r, real t)
 						break;
 					case 2:
 						brightness = (int) (( fabs(W[i][j]) / WEIGHT_LIMIT )*256);
+						if (brightness >threshold)
+						{
+
 						current_color = al_map_rgb(brightness, brightness, brightness);
 						al_draw_line(left+p[i][0],down+ p[i][1],left+p[j][0],down+ p[j][1], current_color,thickness);
+						}
+						break;
+					case 3:
+						brightness = (int) (( fabs(W[i][j]) / WEIGHT_LIMIT )*256);
+						if (brightness >threshold)
+						{
+							current_color =  random_color();
+							al_draw_line(left+p[i][0],down+ p[i][1],left+p[j][0],down+ p[j][1], current_color,thickness);
+						}
 						break;
 
 
