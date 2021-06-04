@@ -9,10 +9,16 @@ void set_up_graphics()
 	al_register_event_source(q, al_get_keyboard_event_source());
 	display = al_create_display(SCREEN_W, SCREEN_H);
 	
-	font = al_load_font("SourceCodePro-Regular.ttf", font_size, 0);
+	//font = al_load_font("SourceCodePro-Regular.ttf", font_size, 0);
 	//font = al_load_font("DroidSansMono.ttf", font_size, 0);
+	fonts[0] = al_load_font("SourceCodePro-Regular.ttf", font_size, 0);
+	fonts[1] = al_load_font("DroidSansMono.ttf", font_size, 0);
+	fonts[2] = al_load_font("MonospaceTypewriter.ttf", font_size, 0);
+	fonts[3] =  al_load_font("AmaticSC-Regular.ttf", font_size, 0);
+	fonts[4] =  al_load_font("mplus-1m-regular.ttf", font_size, 0);
+
 	
-	big_font = al_load_font("MonospaceTypewriter.ttf", big_font_size, 0);
+	font = fonts[font_number];
 	white = al_map_rgb(255, 255, 255);
 	black = al_map_rgb(0, 0, 0);
 	red = al_map_rgb(255, 0, 0);

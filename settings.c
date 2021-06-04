@@ -35,6 +35,8 @@ void load_setting_content()
 	setting_content[32].integer = pixel_width;
 	setting_content[33].integer = thickness;
 	setting_content[34].integer = threshold;
+	setting_content[35].integer = data_size;
+	setting_content[36].integer = font_number;
 
 
 
@@ -110,6 +112,10 @@ void increase_setting(int setting)
 		case 32: pixel_width++;break;
 		case 33: thickness++;break;
 		case 34: threshold++; if (threshold > 255) threshold = 255;break;
+		case 35: data_size++; if (data_size> 255) data_size = 255;break;
+		case 36: font_number++; if (font_number> number_of_fonts - 1) font_number = 0;
+				 font = fonts[font_number];break;
+
 	
 	}
 		
@@ -155,6 +161,9 @@ void decrease_setting(int setting)
 		case 32: pixel_width--;if (pixel_width <1) pixel_width = 1;break; 
 		case 33: thickness--; if (thickness <1) thickness =1;break;
 		case 34: threshold--; if (threshold < 0) threshold = 0;break;
+		case 35: data_size--; if (data_size < 1) data_size = 1;break;
+		case 36: font_number--; if (font_number< 0) font_number = number_of_fonts-1;
+				 font = fonts[font_number];break;
 		
 	}
 	

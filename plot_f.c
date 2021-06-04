@@ -12,7 +12,7 @@ void plot_function_against_data(float x0, float x1, int ppu)
 	{
 		//al_draw_filled_rectangle(LEFT + ppu*(data[i][0] - x0), DOWN + ppu * (1 - data[i][1]), LEFT + ppu*(data[i][0] - x0) + pixel_width,
 		 //DOWN + ppu * (1 - data[i][1])+pixel_height, gray  );
-		 al_draw_circle(LEFT+ppu*(data[i][0] - x0),DOWN + ppu * (1 - data[i][1]),3, i%2==0?red:blue,2);
+		 al_draw_circle(LEFT+ppu*(data[i][0] - x0),DOWN + ppu * (1 - data[i][1]),3, i%2==0?red:blue,data_size);
 	}
 	for (int i = 0; i < (ppu * (x1 - x0)); i++)
 	{

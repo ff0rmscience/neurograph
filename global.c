@@ -19,7 +19,7 @@ enum {LINEAR,TANH, RELU, SWISH, SIN};
 typedef double real;typedef unsigned int nat;
 union nat_real_string {int integer; real floating; char* str[10];};
 union nat_real_string setting_content[40];
-int data_mode = 1;
+int data_mode = 1, data_size =3, number_of_fonts = 5, font_number =4;
 int gray_intensity = 100,structure_L = 500, structure_D = 800, threshold = 128;
 int s_height = 30,DOWN = 355,LEFT = 500,num_F_codes =100,F_code = 0;
 int pixel_width = 17, pixel_height = 17,plot_slow = 10;
@@ -28,7 +28,7 @@ int menu_left = 1100, menu_down = 340, hide_menu = 0, thickness = 3;
 real W[M][M],dW[M][M],z[M],a[M],da[M],b[M],db[M],p[M][2],data[MAX_DATA][2];
 real delta[M],mean_error = 0.0, noise = .3;
 int d[200],C[M][M],L, N, batch_size, image_size=100, neurons_in_layer[10];
-int number_of_settings = 20, number_of_basic_settings = 20, number_of_extended_settings=35,batch_size_increment = 20;
+int number_of_settings = 20, number_of_basic_settings = 20, number_of_extended_settings=37,batch_size_increment = 20;
 real amplify_increment = 0.01, sample_lower_bound = -1.0,sample_upper_bound = 1.0,rate = 0.005,rate_increment = 0.01;
 real amplify;
 int stats_left = 0, stats_down = 340, struct_mode = 0; struct_modes = 4;
@@ -52,7 +52,7 @@ int setting_code[40] =
  0,0,0,0,0,
  0,0,0,0,0,
  0,0,0,0,0,
- 0,0};
+ 0,0,0,0,0};
 //0 for nat, 1 for float, 2 for string
 char* setting_desc[40] = {
 "learning rate    =",
@@ -90,6 +90,8 @@ char* setting_desc[40] = {
 "pix width        =",
 "thickness        =",
 "threshold        =",
+"data size        =",
+"font number      =",
 };
 
 char* menu_choice[20] = {
@@ -102,7 +104,8 @@ char* menu_choice[20] = {
 // allegro variables
 ALLEGRO_EVENT_QUEUE *q;
 ALLEGRO_FONT* font;
-ALLEGRO_FONT* big_font;
+ALLEGRO_FONT* fonts[10];
+
 ALLEGRO_DISPLAY *display;
 ALLEGRO_EVENT event;
 ALLEGRO_COLOR white, red, black, blue, green, yellow, gray,current_color, orange;
