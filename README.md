@@ -10,4 +10,4 @@ https://www.youtube.com/watch?v=K32MrUhvuMY
 Here's an introduction:
 https://www.youtube.com/watch?v=bS0KkczgpPY
 
-This is the first C version, and it's frankly not trimmed or polished. Instead I went on to do newer version in other languages elsewhere. 
+This is the first C version, and it's frankly not trimmed or polished. Instead I went on to do newer versions in other languages elsewhere. 
